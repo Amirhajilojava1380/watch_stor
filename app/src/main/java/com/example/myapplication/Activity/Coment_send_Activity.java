@@ -130,6 +130,7 @@ public class Coment_send_Activity extends AppCompatActivity {
                     intent.putExtra ( Key.id , id );
                     intent.putExtra ( Key.name, titel );
                     intent.putExtra ( Key.Img_link , img );
+
                     intent.putExtra ( Key.Id_list , id_list );
                     intent.putExtra ( Key.Price , pr );
                     startActivity ( intent );
