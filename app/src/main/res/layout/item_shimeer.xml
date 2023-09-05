@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart2"
+            android:layout_width="105dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/cart1"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart3"
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/cart1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@id/cart2"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart4"
+            android:layout_width="105dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/cart1"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@id/cart3"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart5"
+            android:layout_below="@id/cart4"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart6"
+            android:layout_below="@id/cart5"
+            android:layout_width="190dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cart7"
+            android:layout_below="@id/cart5"
+            android:layout_toLeftOf="@id/cart6"
+            android:layout_width="190dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/shimer"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:id="@+id/LinerLayour_orginal">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textSize="12dp"
+       android:text="لیست سفارش های شما"
+       android:textStyle="bold"
+       android:textAlignment="center"
+       android:textColor="@color/black"
+
+       />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#FF0000"
+    android:layout_margin="8dp"
+    />
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="کل سفارش ها: "
+            android:textColor="@color/black"
+
+            />
+        <TextView
+            android:id="@+id/shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="5"
+            android:textAlignment="textEnd"
+            android:textColor="#FF0000"
+
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FF0000"
+
+        />
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="کل قیمت  : "
+            android:textColor="@color/black"
+
+            />
+        <TextView
+            android:id="@+id/qeymat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="5"
+            android:textAlignment="textEnd"
+            android:textColor="#FF0000"
+
+            />
+    </LinearLayout>
+<Button
+    android:id="@+id/button_buy"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="خرید"
+    android:textAlignment="center"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    />
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.User.LoginActivity"
+    android:layoutDirection="rtl"
+    android:background="#68DAD0D0"
+    >
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/bg_profil">
+
+        <EditText
+            android:id="@+id/phon_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_profil_phon"
+            android:drawableRight="@drawable/smartphone"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="10dp"
+            android:hint="شماره موبایل"
+            android:padding="8dp"
+            android:text=""
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/password_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_profil_phon"
+            android:layout_below="@id/phon_Login"
+            android:drawableRight="@drawable/key"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="10dp"
+            android:hint="پسورد "
+            android:padding="8dp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button_Login"
+            android:text="ثبت نام"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_Login"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_Login"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="اگر ثبت نام نکرده اید اینجا کلید کنید "
+            android:textAlignment="center"
+            android:textColor="#673AB7"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            app:lottie_url="https://lottie.host/7d094085-98c5-4810-9089-f14e5dad7dac/zR9MB3Pd7r.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_below="@+id/text_Login"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

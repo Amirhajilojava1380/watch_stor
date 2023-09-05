@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Coment_send_Activity"
+    android:layoutDirection="rtl">
+    <RelativeLayout
+        android:id="@+id/toller"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/aa">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:padding="2dp"
+            >
+            <ImageView
+                android:id="@+id/img_send"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/text_titel_send"
+            android:layout_width="match_parent"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/card"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="اسم"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_price_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/card"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/text_titel_send"
+            android:text="1000000000"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+             />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_1"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:layout_below="@id/toller"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp" >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/decreption"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@drawable/bg_send_coment"
+            android:drawableRight="@drawable/baseline_recommend_24"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="10dp"
+            android:hint="نظر شما "
+            android:padding="8dp"
+            android:text=""
+            android:textColor="@color/black" />
+
+
+<androidx.appcompat.widget.AppCompatRatingBar
+    android:id="@+id/rating"
+    android:layoutDirection="rtl"
+    android:numStars="5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="40dp"
+    android:layout_below="@id/decreption"
+    />
+
+</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button_send_coment"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/card_1"
+        android:layout_margin="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="ارسال نظر"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

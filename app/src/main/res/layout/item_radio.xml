@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    >
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+<RadioButton
+    android:id="@+id/gron"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="گرون ترین ها"
+    android:buttonTint="@color/purple_500"
+    android:textColor="@color/purple_500"
+    android:layout_margin="10dp"
+    />
+<View
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+
+    />
+    <RadioButton
+        android:id="@+id/arzon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ارزون ترین ها"
+        android:buttonTint="@color/purple_500"
+        android:textColor="@color/purple_500"
+        android:layout_margin="10dp"
+        />
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+
+        />
+
+    <RadioButton
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="پربازدید ترین ها"
+        android:buttonTint="@color/purple_500"
+        android:textColor="@color/purple_500"
+        android:layout_margin="10dp"
+        />
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+    <RadioButton
+        android:id="@+id/all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="همه کالا"
+        android:buttonTint="@color/purple_500"
+        android:textColor="@color/purple_500"
+        android:layout_margin="10dp"
+        />
+    <View
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+</RadioGroup>
+</RelativeLayout>

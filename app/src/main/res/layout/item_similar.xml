@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    android:layoutDirection="rtl"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="150dp"
+           android:id="@+id/ImageView_similar"
+           />
+        <TextView
+            android:maxLines="2"
+            android:id="@+id/text_name_similar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ImageView_similar"
+            android:text="ساعت مچی"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#FF0000"
+            />
+        <TextView
+            android:id="@+id/text_pric_similar_off"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_below="@id/text_name_similar"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="100000"
+            android:layout_alignParentLeft="true"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#3C3737"
+            />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

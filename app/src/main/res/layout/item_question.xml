@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:background="@drawable/bg_question_visibl"
+        android:layout_marginTop="10dp"
+        android:id="@+id/relativeLayout"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_visibel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:drawableRight="@drawable/edit"
+            android:drawablePadding="8dp"
+            android:text="برنامه به چه شک کار میکند"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:background="@drawable/bg_question_gone"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:padding="10dp"
+        android:layout_below="@id/relativeLayout"
+        android:id="@+id/relativeLayout_gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="-6dp"
+            android:id="@+id/text_gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="برنامه به چه شک کار میکند"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

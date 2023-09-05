@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.HomeFragment"
+    android:layoutDirection="rtl"
+    android:background="#68DAD0D0">
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ShimmerFrameLayout">
+        <include layout="@layout/item_shimeer"/>
+
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+    <ScrollView
+        android:id="@+id/ScrollView"
+        android:visibility="gone"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/ViewPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ViewPager"
+                    android:id="@+id/TabLayout"
+                    android:background="@drawable/tab_fals_select_on"
+                    app:tabBackground="@drawable/tab_fals_select_on"
+                    app:tabGravity="center"
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RecyclerView_list"
+                    android:layout_below="@id/TabLayout"
+                    />
+                <View
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#FF0000"
+                    android:id="@+id/view1"
+                    android:layout_below="@id/RecyclerView_list"
+
+                    />
+                <TextView
+                    android:layout_margin="5dp"
+                    android:id="@+id/text_offer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view1"
+                    android:text=" تخفیف ویژه یک ماه ساعت من "
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:textColor="#673AB7"
+                    android:textStyle="bold"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="#673AB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RecyclerView_offer"
+                    android:layout_below="@id/text_offer"
+                    />
+                <View
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#FF0000"
+                    android:id="@+id/view2"
+                    android:layout_below="@id/RecyclerView_offer"
+                    />
+                <TextView
+                    android:id="@+id/text_kala"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/view2"
+                    android:text=" تمام ساعت های داخل انبار > "
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:textColor="#673AB7"
+                    android:textStyle="bold"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerView_all_kala"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_kala"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/bg_rec_bander"
+                    android:paddingRight="13dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="@drawable/bg_rec_bander"
+                    android:paddingRight="13dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RecyclerView_brand"
+                    android:layout_below="@id/RecyclerView_all_kala"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

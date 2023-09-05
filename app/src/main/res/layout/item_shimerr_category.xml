@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:layoutDirection="rtl"
+    app:cardBackgroundColor="@color/shimer"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_centerVertical="true"
+        app:cardBackgroundColor="@color/shimer"
+        android:padding="10dp">
+    <ImageView
+        android:id="@+id/img_category"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/text_catefoey"
+        android:layout_width="180dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:maxLines="2"
+        android:textAlignment="center"
+        android:text="ساعت مچی"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:cardBackgroundColor="@color/shimer"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+
+        />
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

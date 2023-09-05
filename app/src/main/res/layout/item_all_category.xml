@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layoutDirection="rtl">
+    <ImageView
+        android:id="@+id/img_ditel"
+        android:layout_width="180dp"
+        android:layout_height="190dp"/>
+<TextView
+    android:layout_marginTop="10dp"
+    android:id="@+id/text_ditel_name"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_toLeftOf="@id/img_ditel"
+    android:text="ساعت مچی"
+    android:textColor="#EA0000"
+    android:textStyle="normal"
+    android:textSize="18dp" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/show"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/text_ditel_name"
+        android:layout_toLeftOf="@id/img_ditel"
+        android:text="کالای موجود در انبار"
+        android:drawableRight="@drawable/location"
+        android:drawablePadding="8dp"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="18dp"
+
+        />
+    <TextView
+        android:paddingLeft="5dp"
+        android:textAlignment="textEnd"
+        android:id="@+id/diteli_price"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/diteli_price_off"
+        android:layout_toLeftOf="@id/img_ditel"
+        android:text="1000000"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="18dp"
+
+        />
+    <TextView
+        android:paddingLeft="5dp"
+        android:textAlignment="textEnd"
+        android:layout_marginTop="20dp"
+        android:id="@+id/diteli_price_off"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/show"
+        android:layout_toLeftOf="@id/img_ditel"
+        android:text="1000000"
+        android:textColor="#F80000"
+        android:textStyle="normal"
+        android:textSize="18dp"
+
+        />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:layout_below="@id/img_ditel"
+    android:background="#FF0000"
+    android:layout_margin="8dp"
+    />
+
+</RelativeLayout>
