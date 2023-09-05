@@ -1,11 +1,14 @@
 package com.example.myapplication.Activity;
 
+import static com.example.myapplication.Golobol.Key.name;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatRatingBar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,7 +37,8 @@ public class Coment_send_Activity extends AppCompatActivity {
     apicoonect request;
     MyProfileManger myProfileManger;
     Bundle bundle;
-    static   String id , Id_list,titel,img,pr,email,date,rating_string;
+    static  String id ,date,rating_string,email,id_list;
+    String titel,img,pr,direction;
     TextView textView_name,textView_price;
     ImageView imageView;
 
@@ -50,16 +54,16 @@ public class Coment_send_Activity extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activitycomentsend );
         request = Apiclient.getapiclient ().create ( apicoonect.class );
-
         myProfileManger =new MyProfileManger ( this );
         email =myProfileManger.getUserData ().get ( MyProfileManger.EMAILE );
 
         bundle =getIntent ().getExtras ();
+        id_list =bundle.getString (Key.Id_list);
         id =bundle.getString ( Key.id );
-        Id_list=bundle.getString ( Key.Id_list );
-        titel =bundle.getString ( Key.name );
+        titel =bundle.getString ( name );
         img=bundle.getString ( Key.Img_link );
-        pr=bundle.getString ( Key.Price );
+        pr = bundle.getString ( Key.Price );
+
 
         textView_name=findViewById ( R.id.text_titel_send );
         textView_name.setText ( titel );
@@ -72,36 +76,40 @@ public class Coment_send_Activity extends AppCompatActivity {
         imageView =findViewById ( R.id.img_send );
         Picasso.get ().load ( img ).into ( imageView );
 
+
+
         //send coment
+        direction_edit=findViewById ( R.id.decreption );
         PersianDate pdate = new PersianDate();
         PersianDateFormat pdformater1 = new PersianDateFormat("Y/m/d");
         date = pdformater1.format(pdate);
 
 
-        direction_edit=findViewById ( R.id.decreption );
+
 
         ratingBar=findViewById ( R.id.rating );
         ratingBar.setOnRatingBarChangeListener ( new RatingBar.OnRatingBarChangeListener ( ) {
             @Override
             public void onRatingChanged ( RatingBar ratingBar , float rating , boolean fromUser ) {
-                rating_string=String.valueOf ( rating );
+                rating_string = String.valueOf ( rating );
+
             }
         } );
+
+
 
         button_send =findViewById ( R.id.button_send_coment );
         button_send.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick ( View v ) {
                 if ( myProfileManger.islogin () ){
-                    String direction = direction_edit.getText ().toString ();
-                    sendComent(id,email,direction,date,rating_string);
+                        direction = direction_edit.getText ().toString ();
+                        sendComent(id,email,direction,date,rating_string);
                 }else {
                     Toast.makeText ( Coment_send_Activity.this , " لطفا وارد حساب خود شوید" , Toast.LENGTH_SHORT ).show ( );
                     startActivity ( new Intent ( Coment_send_Activity.this, LoginActivity.class ) );
                     finish ();
                 }
-
-
             }
         } );
 
@@ -115,9 +123,19 @@ public class Coment_send_Activity extends AppCompatActivity {
         coment_messeagCall.enqueue ( new Callback< Coment_Messeag > ( ) {
             @Override
             public void onResponse ( Call< Coment_Messeag > call , Response< Coment_Messeag > response ) {
-                if ( response.isSuccessful ()&&response.body ().isStatus () ){
+                if ( response.isSuccessful ()&& response.body ().isStatus () ){
+
                     Toast.makeText ( Coment_send_Activity.this , ""+response.body ().getMassage () , Toast.LENGTH_SHORT ).show ( );
-                    startActivity ( new Intent ( Coment_send_Activity.this,ShowDitel_CategoryActivity.class ) );
+                    Intent intent = new Intent ( Coment_send_Activity.this,ShowDitel_CategoryActivity.class );
+                    intent.putExtra ( Key.id , id );
+                    intent.putExtra ( Key.name, titel );
+                    intent.putExtra ( Key.Img_link , img );
+                    intent.putExtra ( Key.Id_list , id_list );
+                    intent.putExtra ( Key.Price , pr );
+                    startActivity ( intent );
+                }else {
+                    Toast.makeText ( Coment_send_Activity.this , "نظر گذاشته نشد" , Toast.LENGTH_SHORT ).show ( );
+
                 }
 
 
