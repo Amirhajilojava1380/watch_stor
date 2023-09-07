@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication.Activity.User.LoginActivity;
 import com.example.myapplication.Adapter.Coment_Adapter;
 import com.example.myapplication.Adapter.Imgshow_ditel_Adapter;
 import com.example.myapplication.Adapter.Similar_Adapter;
@@ -83,6 +84,13 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
     String phon;
     apicoonect requset;
 
+    //favorite
+   ImageView imageView_favrit;
+
+   public  static String select ="1";
+   public  static final String add= "2";
+   public  static final String delet= "1";
+
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
@@ -93,6 +101,32 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
         phon = myProfileManger.getUserData ( ).get ( MyProfileManger.PHON );
         bundle = getIntent ( ).getExtras ( );
 
+        //favorite
+        switch ( select ){
+            case add:imageView_favrit.setImageResource ( R.drawable.baseline_favorite_24 );
+                break;
+            case delet:imageView_favrit.setImageResource ( R.drawable.baseline_favorite_border_24 );
+                break;
+        }
+
+        imageView_favrit=findViewById ( R.id.img_favrit );
+
+
+        imageView_favrit.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick ( View v ) {
+                if ( myProfileManger.islogin () ){
+
+                 Sendfavorite ( id,phon );
+                }else {
+                    startActivity ( new Intent ( ShowDitel_CategoryActivity.this, LoginActivity.class ) );
+                }
+            }
+        } );
+
+
+
+        //
         id   = bundle.getString ( Key.id );
         name = bundle.getString ( Key.name );
         pric = bundle.getString ( Key.Price );
@@ -141,6 +175,61 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
         getdirction_ditel ( id );
         getmahsolmoshabeh ( Id_list );
         getComent ( id );
+    }
+
+    private void deletfavorite ( String id  ) {
+        Call<Coment_Messeag> call_delet =requset.deletfaverit ( id );
+        call_delet.enqueue ( new Callback< Coment_Messeag > ( ) {
+            @Override
+            public void onResponse ( Call< Coment_Messeag > call , retrofit2.Response< Coment_Messeag > response ) {
+                if ( response.isSuccessful ()&&response.body ().getMassage ().equals ("ok") ){
+                    Toast.makeText ( ShowDitel_CategoryActivity.this , "از لیست حذف شد" , Toast.LENGTH_SHORT ).show ( );
+
+
+                }
+
+            }
+
+            @Override
+            public void onFailure ( Call< Coment_Messeag > call , Throwable t ) {
+                Toast.makeText ( ShowDitel_CategoryActivity.this , ""+t.getMessage () , Toast.LENGTH_SHORT ).show ( );
+            }
+        } );
+
+
+
+
+    }
+
+    private void Sendfavorite ( String id , String phon ) {
+        Call<Coment_Messeag> call =requset.sendfaverit (id,phon);
+        call.enqueue ( new Callback< Coment_Messeag > ( ) {
+            @Override
+            public void onResponse ( Call< Coment_Messeag > call , retrofit2.Response< Coment_Messeag > response ) {
+                if ( response.isSuccessful ()&&response.body ().isStatus () ){
+                    Toast.makeText ( ShowDitel_CategoryActivity.this , ""+response.body ().getMassage () , Toast.LENGTH_SHORT ).show ( );
+                    select=add;
+                    imageView_favrit.setImageResource ( R.drawable.baseline_favorite_24 );
+
+                }else {
+                    deletfavorite ( id );
+                    select=delet;
+                    imageView_favrit.setImageResource ( R.drawable.baseline_favorite_border_24 );
+
+                }
+            }
+
+            @Override
+            public void onFailure ( Call< Coment_Messeag > call , Throwable t ) {
+                Toast.makeText ( ShowDitel_CategoryActivity.this , ""+t.getMessage () , Toast.LENGTH_SHORT ).show ( );
+            }
+        } );
+
+
+
+
+
+
     }
 
     private void send_shop ( String id , String phon ) {

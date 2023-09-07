@@ -45,6 +45,20 @@ public interface apicoonect {
             @Field  ( "phon" ) String id_pr
     );
 
+    @FormUrlEncoded
+    @POST("Sendfaverit.php")
+    Call<Coment_Messeag>sendfaverit(
+            @Field  ( "id_pr" ) String id_pr,
+            @Field  ( "phon" ) String phon
+
+    );
+
+    @GET("deletfaverit.php")
+    Call<Coment_Messeag> deletfaverit( @Query  ( "id_pr" ) String id_pr );
+
+    @GET("getFaverite.php")
+    Call< List<Cart>>getfaverit( @Query  ( "phon" ) String phon);
+
     @GET("getCart.php")
     Call< List<Cart>>getcart( @Query  ( "phon" ) String phon);
 

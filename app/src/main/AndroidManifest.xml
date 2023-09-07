@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Favrite_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.All_kala_Activity"
             android:exported="false" />
         <activity

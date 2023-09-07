@@ -11,7 +11,19 @@
         android:id="@+id/toller"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/aa"/>
+        android:background="@drawable/aa">
+
+       <ImageView
+           android:id="@+id/img_favrit"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/baseline_favorite_border_24"
+           android:layout_marginLeft="10dp"
+           />
+
+    </RelativeLayout>
     <ScrollView
         android:id="@+id/ScrollView"
         android:layout_below="@id/toller"
@@ -173,6 +185,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true">
+
 
         <TextView
             android:id="@+id/go_to_shop"

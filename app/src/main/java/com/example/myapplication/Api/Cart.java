@@ -1,7 +1,24 @@
 package com.example.myapplication.Api;
 
 public class Cart {
-private  String id_cart,id_pr,img_link,name,price,offprice;
+private  String id_cart;
+    private String id_pr;
+    private String img_link;
+    private String name;
+    private String price;
+    private String offprice;
+
+
+    public String getId_list ( ) {
+        return id_list;
+    }
+
+    public void setId_list ( String id_list ) {
+        this.id_list = id_list;
+    }
+
+    private String id_list;
+
 
     public String getId_cart ( ) {
         return id_cart;

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.myapplication.Activity.Favrite_Activity;
 import com.example.myapplication.Activity.MainActivity;
 import com.example.myapplication.Activity.PeyOff_Activity;
 import com.example.myapplication.Activity.QuestionActivity;
@@ -29,7 +30,7 @@ public class ProfileFragment extends Fragment {
     View view;
 
     MyProfileManger myProfileManger;
-    CardView cardView1,cardView2,cardView3,cardView4,cardView5;
+    CardView cardView1,cardView2,cardView3,cardView4,cardView5,cardView6;
     TextView textView_email,textView_phon,textView_open_exit;
     RelativeLayout relativeLayout;
 
@@ -54,9 +55,7 @@ public class ProfileFragment extends Fragment {
                     Intent intent = new Intent ( getContext (), ShopActivity.class );
                     startActivity ( intent );
                 }else {
-
                     startActivity ( new Intent ( getContext (), LoginActivity.class ) );
-
                 }
 
             }
@@ -116,11 +115,30 @@ public class ProfileFragment extends Fragment {
                 }
             } );
 
+
+
+
+
         }else {
             myProfileManger.islogin ();
 
         }
 
+        cardView6 =view.findViewById ( R.id.cart6 );
+        cardView6.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick ( View v ) {
+                if ( myProfileManger.islogin ( ) ){
+                    startActivity ( new Intent ( getContext (), Favrite_Activity.class ) );
+
+
+
+                }else {startActivity ( new Intent ( getContext (),LoginActivity.class ) );
+                }
+
+
+            }
+        } );
 
 
 
