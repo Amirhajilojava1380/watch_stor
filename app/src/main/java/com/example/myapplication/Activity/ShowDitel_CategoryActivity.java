@@ -102,12 +102,7 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
         bundle = getIntent ( ).getExtras ( );
 
         //favorite
-        switch ( select ){
-            case add:imageView_favrit.setImageResource ( R.drawable.baseline_favorite_24 );
-                break;
-            case delet:imageView_favrit.setImageResource ( R.drawable.baseline_favorite_border_24 );
-                break;
-        }
+
 
         imageView_favrit=findViewById ( R.id.img_favrit );
 

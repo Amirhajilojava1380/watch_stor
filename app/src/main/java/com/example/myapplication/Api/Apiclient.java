@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Apiclient {
-     private   static String BASE_URL="http://192.168.1.5/viewpajer/";
+     private   static String BASE_URL="http://192.168.1.3/viewpajer/";
      public  static   Retrofit retrofit = null;
      public  static  Retrofit getapiclient(){
          if ( retrofit==null ){
