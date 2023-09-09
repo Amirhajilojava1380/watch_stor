@@ -42,7 +42,8 @@ public interface apicoonect {
     @POST("Sendcart.php")
     Call<Coment_Messeag>sentcart(
             @Field  ( "id_pr" ) String phon,
-            @Field  ( "phon" ) String id_pr
+            @Field  ( "phon" ) String id_pr,
+            @Field  ( "num" ) String num
     );
 
     @FormUrlEncoded

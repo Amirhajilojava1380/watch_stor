@@ -45,18 +45,38 @@ public class Shop_Adapter extends RecyclerView.Adapter< Shop_Adapter.MyViewHolde
         holder.name.setText ( data.get ( position ).getName ());
         Picasso.get ().load ( data.get ( position ).getImg_link () ).into ( holder.imageView );
 
+        holder.num.setText ( data.get ( position ).getNum () );
+        int n = Integer.parseInt ( ( data.get ( position ).getNum () ) );
         String pr =data.get ( position ).getPrice ();
         String of =data.get ( position ).getOffprice ();
 
         if ( pr.equals ( of ) ){
             DecimalFormat decimalFormat =new DecimalFormat ( "###,###" );
             String decimalFormat_price=decimalFormat.format (Integer.valueOf (   data.get ( position ).getPrice ()) );
-            holder.price.setText ( decimalFormat_price + " تومان " );
+            if (n == 1  ){
+                holder.price.setText ( decimalFormat_price + " تومان " );
+                pric_And_size.Itempeic_And_size ( data.get ( position ).getPrice (),data.size ()+"" );
+            }else {
+               int p = Integer.parseInt ( data.get ( position ).getPrice () );
+               String b = String.valueOf ( p * n );
+                holder.price.setText ( b + " تومان " );
+                pric_And_size.Itempeic_And_size ( b,data.size ()+"" );
+            }
+
 
         }else {
             DecimalFormat decimalFormat =new DecimalFormat ( "###,###" );
             String decimalFormat_offprice=decimalFormat.format (Integer.valueOf (   data.get ( position ).getOffprice ()) );
-            holder.price.setText ( decimalFormat_offprice + " تومان " );
+            if (n==1){
+                pric_And_size.Itempeic_And_size ( data.get ( position ).getOffprice (),data.size ()+"" );
+               holder.price.setText ( decimalFormat_offprice + " تومان " );
+            }else {
+                int p = Integer.parseInt ( data.get ( position ).getOffprice () );
+                String b = String.valueOf ( p * n );
+                holder.price.setText ( b + " تومان " );
+                pric_And_size.Itempeic_And_size ( b,data.size ()+"" );
+            }
+
         }
 
 
@@ -76,7 +96,6 @@ public class Shop_Adapter extends RecyclerView.Adapter< Shop_Adapter.MyViewHolde
         } );
 
 
-        pric_And_size.Itempeic_And_size ( data.get ( position ).getPrice (),data.size ()+"" );
     }
 
     @Override
@@ -85,7 +104,7 @@ public class Shop_Adapter extends RecyclerView.Adapter< Shop_Adapter.MyViewHolde
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView name,price,delet;
+        TextView name,price,delet,num;
         ImageView imageView;
         Button button;
 
@@ -97,7 +116,7 @@ public class Shop_Adapter extends RecyclerView.Adapter< Shop_Adapter.MyViewHolde
             price =itemView.findViewById ( R.id.diteli_price );
             delet=itemView.findViewById ( R.id.delet );
             button = itemView.findViewById ( R.id.buttm_go );
-
+            num = itemView.findViewById ( R.id.num );
         }
     }
 

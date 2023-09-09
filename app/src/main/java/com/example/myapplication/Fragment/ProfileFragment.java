@@ -1,5 +1,8 @@
 package com.example.myapplication.Fragment;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -106,10 +109,24 @@ public class ProfileFragment extends Fragment {
             cardView5.setOnClickListener ( new View.OnClickListener ( ) {
                 @Override
                 public void onClick ( View view ) {
-                    myProfileManger.Loguot ();
-                  Intent intent   =new Intent ( getContext (), MainActivity.class ) ;
-                  getActivity().onBackPressed();
-                  startActivity ( intent );
+                    AlertDialog.Builder builder =new AlertDialog.Builder ( getContext () );
+                    builder.setTitle ( "خروج" ).setMessage ( "ایا مطمعن هستید?" )
+                            .setPositiveButton ( "بله" , new DialogInterface.OnClickListener ( ) {
+                                @Override
+                                public void onClick ( DialogInterface dialog , int which ) {
+                                    myProfileManger.Loguot ();
+                                    Intent intent   =new Intent ( getContext (), MainActivity.class ) ;
+                                    getActivity().onBackPressed();
+                                    startActivity ( intent );
+
+                                }
+                            } ).setNegativeButton ( "خیر" , new DialogInterface.OnClickListener ( ) {
+                                @Override
+                                public void onClick ( DialogInterface dialog , int which ) {
+                                    dialog.cancel ();
+                                }
+                            } ).show ();
+
 
 
                 }

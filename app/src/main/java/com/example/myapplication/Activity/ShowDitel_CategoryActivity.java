@@ -22,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.myapplication.Activity.User.LoginActivity;
 import com.example.myapplication.Adapter.Coment_Adapter;
 import com.example.myapplication.Adapter.Imgshow_ditel_Adapter;
@@ -33,9 +34,6 @@ import com.example.myapplication.Api.MyProfileManger;
 import com.example.myapplication.Api.apicoonect;
 import com.example.myapplication.Golobol.Key;
 import com.example.myapplication.Golobol.Link;
-import com.example.myapplication.Model.Amazing;
-import com.example.myapplication.Model.Ditel_category;
-import com.example.myapplication.Model.OffAmazing;
 import com.example.myapplication.Model.Similar;
 import com.example.myapplication.Model.Slider_bander;
 import com.example.myapplication.Model.coment;
@@ -43,7 +41,6 @@ import com.example.myapplication.Model.dickrption;
 import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -91,6 +88,8 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
    public  static final String add= "2";
    public  static final String delet= "1";
 
+    ElegantNumberButton numberButton;
+    public static String num;
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
@@ -101,12 +100,13 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
         phon = myProfileManger.getUserData ( ).get ( MyProfileManger.PHON );
         bundle = getIntent ( ).getExtras ( );
 
+        //elegan
+        numberButton =findViewById ( R.id.elegan );
+
+
+
         //favorite
-
-
-        imageView_favrit=findViewById ( R.id.img_favrit );
-
-
+        imageView_favrit = findViewById ( R.id.img_favrit );
         imageView_favrit.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick ( View v ) {
@@ -143,10 +143,20 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
 
 
         if ( myProfileManger.islogin ( ) ) {
+
+
             textView_go_to_shop.setOnClickListener ( new View.OnClickListener ( ) {
                 @Override
                 public void onClick ( View v ) {
-                    send_shop ( id , phon );
+                    num = numberButton.getNumber ();
+                    if ( num.equals ("0") ){
+                        num = "1";
+                    }else {
+                        num = num;
+                    }
+
+
+                    send_shop ( id , phon , num);
                 }
             } );
         }
@@ -227,13 +237,13 @@ public class ShowDitel_CategoryActivity extends AppCompatActivity {
 
     }
 
-    private void send_shop ( String id , String phon ) {
-        Call< Coment_Messeag > call = requset.sentcart ( id , phon );
+    private void send_shop ( String id , String phon , String num ) {
+        Call< Coment_Messeag > call = requset.sentcart ( id , phon ,num);
         call.enqueue ( new Callback< Coment_Messeag > ( ) {
             @Override
             public void onResponse ( Call< Coment_Messeag > call , retrofit2.Response< Coment_Messeag > response ) {
                 if ( response.isSuccessful ( ) && response.body ( ).isStatus ( ) ) {
-                    Toast.makeText ( ShowDitel_CategoryActivity.this , "" + response.body ( ).getMassage ( ) , Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( ShowDitel_CategoryActivity.this , num+ response.body ( ).getMassage ( ) , Toast.LENGTH_SHORT ).show ( );
                 }
 
             }

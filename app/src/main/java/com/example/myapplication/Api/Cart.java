@@ -2,6 +2,16 @@ package com.example.myapplication.Api;
 
 public class Cart {
 private  String id_cart;
+    private  String num;
+
+    public String getNum ( ) {
+        return num;
+    }
+
+    public void setNum ( String num ) {
+        this.num = num;
+    }
+
     private String id_pr;
     private String img_link;
     private String name;

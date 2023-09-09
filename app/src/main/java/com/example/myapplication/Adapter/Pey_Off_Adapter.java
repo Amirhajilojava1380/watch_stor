@@ -37,19 +37,36 @@ public class Pey_Off_Adapter extends RecyclerView.Adapter< Pey_Off_Adapter.MyVie
     public void onBindViewHolder ( @NonNull MyViewHolder holder , int position ) {
         holder.name.setText ( data.get ( position ).getName ( ) );
         Picasso.get ( ).load ( data.get ( position ).getImg_link ( ) ).into ( holder.imageView );
-
+        holder.num.setText ( data.get ( position ).getNum () );
         String pr = data.get ( position ).getPrice ( );
         String of = data.get ( position ).getOffprice ( );
+        int n = Integer.parseInt ( ( data.get ( position ).getNum () ) );
 
-        if ( pr.equals ( of ) ) {
-            DecimalFormat decimalFormat = new DecimalFormat ( "###,###" );
-            String decimalFormat_price = decimalFormat.format ( Integer.valueOf ( data.get ( position ).getPrice ( ) ) );
-            holder.price.setText ( decimalFormat_price + " تومان " );
+        if ( pr.equals ( of ) ){
+            DecimalFormat decimalFormat =new DecimalFormat ( "###,###" );
+            String decimalFormat_price=decimalFormat.format (Integer.valueOf (   data.get ( position ).getPrice ()) );
+            if (n == 1  ){
+                holder.price.setText ( decimalFormat_price + " تومان " );
+            }else {
+                int p = Integer.parseInt ( data.get ( position ).getPrice () );
+                String b = String.valueOf ( p * n );
+                holder.price.setText ( b + " تومان " );
 
-        } else {
-            DecimalFormat decimalFormat = new DecimalFormat ( "###,###" );
-            String decimalFormat_offprice = decimalFormat.format ( Integer.valueOf ( data.get ( position ).getOffprice ( ) ) );
-            holder.price.setText ( decimalFormat_offprice + " تومان " );
+            }
+
+
+        }else {
+            DecimalFormat decimalFormat =new DecimalFormat ( "###,###" );
+            String decimalFormat_offprice=decimalFormat.format (Integer.valueOf (   data.get ( position ).getOffprice ()) );
+            if (n==1){
+
+                holder.price.setText ( decimalFormat_offprice + " تومان " );
+            }else {
+                int p = Integer.parseInt ( data.get ( position ).getOffprice () );
+                String b = String.valueOf ( p * n );
+                holder.price.setText ( b + " تومان " );
+            }
+
         }
 
 
@@ -61,10 +78,8 @@ public class Pey_Off_Adapter extends RecyclerView.Adapter< Pey_Off_Adapter.MyVie
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView name,price,delet;
+        TextView name,price,delet,num;
         ImageView imageView;
-
-
 
         public MyViewHolder ( @NonNull View itemView ) {
             super ( itemView );
@@ -72,6 +87,7 @@ public class Pey_Off_Adapter extends RecyclerView.Adapter< Pey_Off_Adapter.MyVie
             name =itemView.findViewById ( R.id.text_ditel_name );
             price =itemView.findViewById ( R.id.diteli_price );
             delet=itemView.findViewById ( R.id.delet );
+            num = itemView.findViewById ( R.id.num );
 
         }
     }
